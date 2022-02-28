@@ -1,6 +1,7 @@
 # Loja-Virtual
 Função de Compras para loja virtual.
 package view;
+package view;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -183,9 +184,28 @@ public class Mercado {
 		Utils.pausar(2);
 		Mercado.menu();
 	}
-	
+
 	private static void fecharPedido() {
-		
+		Double valorTotal = 0.00;
+		System.out.println(" Produtos do Carrinho ");
+		System.out.println("-----------------------------");
+		for (Produto p : Mercado.carrinho.keySet()) {
+			int quant = Mercado.carrinho.get(p);
+			valorTotal += p.getPreco() * quant;
+			System.out.println(p);
+			System.out.println(" Quantidade: " + quant);
+			System.out.println(" -------------------------------- ");
+
+		}
+		System.out.println("Sua fatura é: " + Utils.doubleParaString(valorTotal));
+		Mercado.carrinho.clear();
+		System.out.println(" ----------------------- ");
+		System.out.println(" Obrigado pela Preferencia ");
+		System.out.println(" ----------------------- ");
+		Utils.pausar(5);
+		Mercado.menu();
+
 	}
 
 }
+		
